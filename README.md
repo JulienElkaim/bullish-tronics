@@ -123,16 +123,16 @@ ____
 
 Adding a new type of deal is easy once you know what steps you need to follow :
 
-- Create a new model extending the Deal model and create a new DealType (model module)
-- Create a Dto matching this model and add the new DealTypeDto (io module)
-- Create an Adapter for this Dto, inject it in DealDtoAdapter (data-adapter module)
-- Instantiate this adapter in AdapterBeansConfig (app module)
-- Create an extension of DealDetails matching what this new model needs. (model module)
-- Implement in the DealFactory for this new Deal / DealDetails pair. (core module)
-- Create a mixIn for this new details object, register it in MixinsConfig, and add the correct mapping in DealDetailsMixIn (serialization module)
-- Create the Discounter holding the Business logic. (core module)
-- Instantiate this new discounter in ServiceBeansConfig (app module).
+- Create a new model extending the `Deal` model and create a new `DealType` **(model module)**
+- Create a `XXXDto` matching this model and add the new `DealTypeDto` **(io module)**
+- Create an `XXXAdapter` for this dto, inject it in `DealDtoAdapter` **(data-adapter module)**
+- Instantiate this adapter in `AdapterBeansConfig` **(app module)**
+- Create an extension of `DealDetails` matching what this new model needs. **(model module)**
+- Implement in the `DealFactory` for this new `Deal` / `DealDetails` pair. **(core module)**
+- Create a `XXXMixIn` for this new details object, register it in `MixinsConfig`, and add the correct mapping in `DealDetailsMixIn` (serialization module)**
+- Create the `Discounter` holding the Business logic. **(core module)**
+- Instantiate this new discounter in `ServiceBeansConfig` **(app module)**.
   
 
-- _Bonus: For easy test, you can inject a sample deal at start (StoreBeansConfig, app module)._ 
-  - _Otherwise, you can use the swagger. Rely on the MixIn definition to knowthe fields you have to provide._
+- _Bonus: For easy test, you can inject a sample deal at start (`StoreBeansConfig`, app module)._ 
+  - _Otherwise, you can use the swagger. Rely on the `XXXDetailsMixIn` definition to knowthe fields you have to provide._
